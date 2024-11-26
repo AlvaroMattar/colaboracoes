@@ -10,8 +10,8 @@ using colaboracaoapi.Infra;
 namespace colaboracaoapi.Migrations
 {
     [DbContext(typeof(ColaboracaoContext))]
-    [Migration("20241123043219_AddColaboracaoUsuarios")]
-    partial class AddColaboracaoUsuarios
+    [Migration("20241126085255_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,7 +81,8 @@ namespace colaboracaoapi.Migrations
                 {
                     b.HasOne("colaboracaoapi.Models.Colaboracao", "Colaboracao")
                         .WithMany("Usuarios")
-                        .HasForeignKey("ColaboracaoId");
+                        .HasForeignKey("ColaboracaoId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Colaboracao");
                 });

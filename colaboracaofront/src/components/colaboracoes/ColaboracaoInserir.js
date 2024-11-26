@@ -87,6 +87,12 @@ const ColaboracaoInserir = () => {
         return (
             <div className="registration_form">
                 <h1 className="h1lista">ACESSO APENAS PARA ORGANIZADORES E ADMINS</h1>
+
+                <div>
+                    <form>
+                        <input onClick={e => voltar(e)} value="Voltar" type="submit"/>
+                    </form>
+                </div>
             </div>
         );
     }

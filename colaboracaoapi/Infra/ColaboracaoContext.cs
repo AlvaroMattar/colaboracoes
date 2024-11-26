@@ -19,5 +19,13 @@ public class ColaboracaoContext : DbContext
         options.UseSqlite($"Data Source={caminho}");
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Colaboracao>()
+        .HasMany(b => b.Usuarios)
+        .WithOne(c => c.Colaboracao)
+        .OnDelete(DeleteBehavior.SetNull);
+    }
+
     private readonly string caminho;
 }

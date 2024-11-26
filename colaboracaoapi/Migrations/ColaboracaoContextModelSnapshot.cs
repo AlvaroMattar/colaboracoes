@@ -78,7 +78,8 @@ namespace colaboracaoapi.Migrations
                 {
                     b.HasOne("colaboracaoapi.Models.Colaboracao", "Colaboracao")
                         .WithMany("Usuarios")
-                        .HasForeignKey("ColaboracaoId");
+                        .HasForeignKey("ColaboracaoId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Colaboracao");
                 });
